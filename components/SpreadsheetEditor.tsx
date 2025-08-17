@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useCallback } from 'react'
-import { SpreadsheetRow } from '../App'
+import { SpreadsheetRow } from '@/types'
 import { SpreadsheetCell } from './SpreadsheetCell'
 import { Button } from './ui/button'
 import { Plus, Trash2 } from 'lucide-react'
