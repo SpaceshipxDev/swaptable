@@ -1,6 +1,6 @@
 'use client'
 
-import { Metadata, ViewType } from '../App'
+import { Metadata, ViewType } from '@/lib/types'
 import { Input } from './ui/input'
 import { Label } from './ui/label'
 import { Separator } from './ui/separator'

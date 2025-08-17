@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useCallback } from 'react'
-import { SpreadsheetRow } from '../App'
+import { SpreadsheetRow } from '@/lib/types'
 import { SpreadsheetCell } from './SpreadsheetCell'
 import { Button } from './ui/button'
 import { Plus, Trash2 } from 'lucide-react'
@@ -178,9 +178,9 @@ export function SpreadsheetEditor({ rows, onRowsChange }: SpreadsheetEditorProps
               const column = columns[targetColumnIndex]
               if (column.type !== 'image' && column.key !== 'id') {
                 if (column.type === 'checkbox') {
-                  newRows[targetRowIndex][column.key] = cellValue.toLowerCase() === 'true' || cellValue === '1' || cellValue.toLowerCase() === 'yes'
+                  (newRows[targetRowIndex] as any)[column.key] = cellValue.toLowerCase() === 'true' || cellValue === '1' || cellValue.toLowerCase() === 'yes'
                 } else {
-                  newRows[targetRowIndex][column.key] = cellValue
+                  (newRows[targetRowIndex] as any)[column.key] = cellValue
                 }
               }
             }
@@ -256,7 +256,7 @@ export function SpreadsheetEditor({ rows, onRowsChange }: SpreadsheetEditorProps
                   >
                     <SpreadsheetCell
                       value={row[column.key]}
-                      type={column.type}
+                      type={column.type as 'text' | 'number' | 'image' | 'checkbox'}
                       isSelected={isSelected}
                       isEditing={isEditing && isSelected}
                       onChange={(value) => updateCell(row.id, column.key, value)}
