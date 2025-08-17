@@ -1,6 +1,6 @@
 'use client'
 
-import { ViewType } from '../App'
+import { ViewType } from '@/lib/types'
 
 interface NavigationProps {
   currentView: ViewType

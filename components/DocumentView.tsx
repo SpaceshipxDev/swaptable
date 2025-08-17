@@ -1,6 +1,6 @@
 'use client'
 
-import { ViewType, SpreadsheetRow, Metadata } from '../App'
+import { ViewType, SpreadsheetRow, Metadata } from '@/lib/types'
 import { ImageWithFallback } from './figma/ImageWithFallback'
 
 interface DocumentViewProps {
@@ -191,7 +191,7 @@ export function DocumentView({ viewType, metadata, rows }: DocumentViewProps) {
                     ) : column === '单价' || column === '总价' ? (
                       row[column as keyof SpreadsheetRow] ? `¥${row[column as keyof SpreadsheetRow]}` : '-'
                     ) : (
-                      row[column as keyof SpreadsheetRow] || '-'
+                      String(row[column as keyof SpreadsheetRow] ?? '') || '-'
                     )}
                   </td>
                 ))}
