@@ -1,6 +1,6 @@
 'use client'
 
-import { ViewType, SpreadsheetRow, Metadata } from '@/types'
+import { ViewType, SpreadsheetRow, Metadata } from '../App'
 import { ImageWithFallback } from './figma/ImageWithFallback'
 
 interface DocumentViewProps {
